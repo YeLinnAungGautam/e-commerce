@@ -86,7 +86,7 @@
                                     <p><b>MMKs  {{$product->price}} </b> </p>
                                     <small class="card-text">{!!Str::limit($product->description,120)!!}</small>
                                     <a style="pl-15" href="{{ route('add.cart',[$product->id]) }}">
-                                        <button type="button" class="btn btn-sm mx-auto  btn-outline-light mt-3" style ="   ;border-radius : 20px;">Shop Now</button>
+                                        <button type="button" class="btn btn-sm mx-auto  btn-outline-light mt-3" style ="border-radius : 20px;">Shop Now</button>
                                     </a>
 
                                 </div>

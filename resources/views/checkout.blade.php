@@ -32,70 +32,115 @@
 </style>
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
-                <table class="table table-striped">
-                    <thead>
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Image</th>
-                        <th scope="col">Product</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Quantity</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                        @if($cart)
-                        @php 
-                            $i=1
-                        @endphp
-                    @foreach($cart->items as $product)
-                      <tr>
-                        <th scope="row">{{$i++}}</th>
-                        <td><img src="{{Storage::url($product['image'])}}" alt="" width="100"></td>
-                        <td>{{$product['name']}}</td>
-                        <td>{{$product['price']}}</td>
-                        <td>{{$product['qty']}}</td>
-                      </tr>
-                    @endforeach
-                    @endif
-                    </tbody>
-                  </table>
-                  <hr>
-                  <span class="mt-3">Total Price: {{$cart->totalPrice}} </span>
-            </div>
-            <div class="col-md-6">
-                <div class="card"> 
-                    <div class="card-header">Checkout</div>
-                    <div class="card-body">
-                        <form action="/charge" method="post" id="payment-form">@csrf
-                            <div class="form-group">
-                                <label>Name</label>
-                                <input type="text" name="name" id="name" class="form-control" value={{auth()->user()->name}} readonly="" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Address</label>
-                                <input type="text" name="address" id="address" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label>City</label>
-                                <input type="text" name="city" id="city" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label>State</label>
-                                <input type="text" name="state" id="state" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Postal Code</label>
-                                <input type="text" name="postalcode" id="postalcode" class="form-control" required>
-                            </div>
-                            <div class="mt-3">
-                                <input type="hidden" name="amount" value="{{$amount}}">
-                                <button class="btn btn-primary mt-3" type="submit">Submit</button>
-                            </div>
-                        </form>
-                    </div>
+            <div class="col-6 col-md-5  text-white">
+              <i class="nav-item fa fa-user m-2 mb-4" > Hi Treasa!</i>
+              <div class="row mb-3" style ="border:1px solid #808080; border-radius: 10px;">
+                <div class="col-md-4">
+                  <img src="{{Storage::url('public/files/xCCWSBMZi929D5ZL1RH4Tqoc7luuNjcpJtqbqNex.png')}}" class ="floar-right m-3 mx-auto" style=" border-radius: 20px; height:5rem; "     alt="..."> 
                 </div>
+                <div class="col-md-4 mt-2 ">
+                  <p><u><b>Arti Pro H001 </b></u></p>
+                  <p class="m-2"> Product Code: 224 </p>
+                  <p class="m-2"> Category: Headphone </p>
+                  <p class="m-2"> Quantity:1 </p>
+                  <p class="m-2"> Waiting Time: 3weeks </p>
+                </div>
+                <div class="col-md-4 mt-2 ">  
+                  <p></p>
+                  <p class="mt-4 ml-2">  Color: Pink </p>
+                  <p class="m-2"> Brand: Anti </p>
+                  <p class="m-2"> Status: Preorder </p>
+                </div>
+                <hr class="mx-auto" style= "width:90%;  ">
+              <div class="text-right">
+                <p class="m-2"><b>MMKs: 10000</b></p>
+              </div>
+              </div>
+              <div class="row" style ="border:1px solid #808080; border-radius: 10px;">
+                <div class="col-md-4">
+                  <img src="{{Storage::url('public/files/xCCWSBMZi929D5ZL1RH4Tqoc7luuNjcpJtqbqNex.png')}}" class ="floar-right m-3 mx-auto" style=" border-radius: 20px; height:5rem; "     alt="..."> 
+                </div>
+                <div class="col-md-4 mt-2 ">
+                  <p><u><b>Arti Pro H001 </b></u></p>
+                  <p class="m-2"> Product Code: 224 </p>
+                  <p class="m-2"> Category: Headphone </p>
+                  <p class="m-2"> Quantity:1 </p>
+                  <p class="m-2"> Waiting Time: 3weeks </p>
+                </div>
+                <div class="col-md-4 mt-2 ">  
+                  <p></p>
+                  <p class="mt-4 ml-2">  Color: Pink </p>
+                  <p class="m-2"> Brand: Anti </p>
+                  <p class="m-2"> Status: Preorder </p>
+                </div>
+                <hr class="mx-auto" style= "width:90%;  ">
+              <div class="text-right">
+                <p class="m-2"><b>MMKs: 10000</b></p>
+              </div>
+              </div>
             </div>
+            <div class="col-6 col-md-3 bg-black text-white">
+              <lable class = "row h5 mb-2"><b>YOUR ORDER <small>(Deivery Info.) </small><b></lable>      
+              <form action="/charge" method="post" id="payment-form">@csrf
+                <div class="form-group m-2">
+                  <label>Name</label>
+                  <input type="text" name="name" id="name" class="form-control" value={{auth()->user()->name}} readonly="" required>
+                </div>
+                <div class="form-group m-2">
+                  <label>Address</label>
+                  <input type="text" name="address" id="address" class="form-control" required>
+                </div>
+                <div class="form-group m-2">
+                 <label>City</label>
+                  <input type="text" name="city" id="city" class="form-control" required>
+                </div>
+                <div class="form-group m-2">
+                  <label>Delivery Township</label>
+                  <input type="text" name="deltownship" id="deltownship" class="form-control" required>
+                </div>
+                <div class="form-group m-2">
+                  <label>State/Region</label>
+                  <input type="text" name="state" id="state" class="form-control" required>
+                </div>
+                <div class="form-group m-2">
+                  <label>PhoneNumber</label>
+                  <input type="number" name="phonenumber" id="phonenumber" class="form-control" required>
+                </div>
+                <div class="form-group m-2">
+                  <label class="h4"><b>Price: 1000 MMKs</b></label>
+                  <input type="hidden" name="amount" value="{{$amount}}">
+                </div>
+                <div class="form-group m-3">
+                  <input type="checkbox" name="saveInfo" >
+                  <label>Save this Info for next time.</label>
+                </div>
+                <a href=" ">
+                  <button type="button" class="btn btn-sm mx-auto mt-3 text-white" style ="border-radius : 20px;width:100%; background-color : #aa0000;">Continue to Payment</button>
+              </a>
+              </form>        
+            </div>
+        </div>
+        <div class="row mt-10">
+          <div class="col-md-6 text-white bg-dark">  
+              <label class="h5 p-3"><b>CHOOSE PAYMENT METHOD</b></label><br/>
+              <div class="m-1 mb-5">
+                <input type="radio" id="kbzpay" name="payment"  class="form-check-input m-3"  >
+                <label class="h5 mt-2" for="kbzpay">KBZ Pay</label><br/>
+                <input type="radio" id="cbpay" name="payment" class="form-check-input m-3" >
+                <label class="h5 mt-2" for="cbpay">CB Pay</label><br/>
+                <input type="radio" id="wavepay" name="payment"  class=" form-check-input m-3">
+                <label class="h5 mt-2"  for="wavepay">Wave Pay</label><br/>
+              </div>
+          </div>
+          <div class="col-md-5 text-white" style ="border:1px solid #808080; ">
+            <label class="h5 p-1"><b>Account Name - Ei Thinzar Ko</b></label><br/>
+            <label class="h5 p-1"><b>Phone Number - 09986715035</b></label><br/>
+            <img src="{{ asset("images/kpayImg.png") }}" class="m-auto p-2" style="width: 260px;height: 300px; "/>
+          </div>
+        </div>
+        <div class="mt-3">
+          <i class="fa fa-warning fa-xl m-2 mb-4" style="color: red">  </i>
+          <lable class="text-white">Don't forget to save your payment vocher.</lable>
         </div>
     </div>
     <script src="https://js.stripe.com/v3/"></script>
